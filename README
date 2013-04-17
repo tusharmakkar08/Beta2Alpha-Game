@@ -2,3 +2,10 @@ Mastermind game made in assembly language using TASM.
 The code is well commented.
 It is implemented by interfacing it with a circuit made up of LED's and switches used for taking input and LED's for showing output as Alpha and Beta.
 Microprocessor used : 8086,8255(for interfacing)
+Mastermind.asm - Simple code in asm (Shows output on Computer Screen)
+B2A.asm - Interfaced code with 8255 ( Shows output through LED )
+
+To run the file use :
+1> tasm mastermind.asm
+2> tlink mastermind.obj+io
+3> mastermind.exe

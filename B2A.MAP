@@ -2,25 +2,25 @@
  Start  Stop   Length Name               Class
 
  00000H 00190H 00191H DATA               
- 001A0H 00535H 00396H CODE               
- 00540H 00607H 000C8H STAC               
- 00610H 007B2H 001A3H IO                 
+ 001A0H 00522H 00383H CODE               
+ 00530H 005F7H 000C8H STAC               
+ 00600H 007A2H 001A3H IO                 
 
   Address         Publics by Name
 
- 0061:005D       ATOI_PROC
- 0061:019C       INC_PROC
- 0061:014F       INS_PROC
- 0061:0000       ITOA_PROC
- 0061:00D4       OUT_PROC
+ 0060:005D       ATOI_PROC
+ 0060:019C       INC_PROC
+ 0060:014F       INS_PROC
+ 0060:0000       ITOA_PROC
+ 0060:00D4       OUT_PROC
 
   Address         Publics by Value
 
- 0061:0000       ITOA_PROC
- 0061:005D       ATOI_PROC
- 0061:00D4       OUT_PROC
- 0061:014F       INS_PROC
- 0061:019C       INC_PROC
+ 0060:0000       ITOA_PROC
+ 0060:005D       ATOI_PROC
+ 0060:00D4       OUT_PROC
+ 0060:014F       INS_PROC
+ 0060:019C       INC_PROC
 
 Program entry point at 001A:0000
 Warning: No stack

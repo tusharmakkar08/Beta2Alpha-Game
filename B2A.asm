@@ -61,7 +61,7 @@ code segment
 		push ax		; used for unchanging the ax and dx value
 		push dx
 		
-		MOV AL,92H      ;Initialize A - Output B-Input Ports
+		MOV AL,8AH      ;Initialize A - Output B-Input Ports; A port is taken as output and B and C are taken as input
         MOV DX,CR
         OUT DX,AL        ;Write to Control Register.
 		
@@ -145,56 +145,56 @@ while:
 		jmp while
 		
 wend1:
-		mov [di],'0'
-		mov [di+1],'2'
+		mov byte ptr[di],'0'
+		mov byte ptr[di+1],'2'
 		
 		jmp inend
 
 wend2:
-		mov [di],'0'
-		mov [di+1],'1'
+		mov byte ptr[di],'0'
+		mov byte ptr[di+1],'1'
 		
 		jmp inend
 		
 wend3:
-		mov [di],'0'
-		mov [di+1],'0'
+		mov byte ptr[di],'0'
+		mov byte ptr[di+1],'0'
 		
 		jmp inend
 
 wend4:
-		mov [di],'1'
-		mov [di+1],'0'
+		mov byte ptr[di],'1'
+		mov byte ptr[di+1],'0'
 		
 		jmp inend
 		
 wend5:
-		mov [di],'1'
-		mov [di+1],'1'
+		mov byte ptr[di],'1'
+		mov byte ptr[di+1],'1'
 		
 		jmp inend
 	
 wend6:
-		mov [di],'1'
-		mov [di+1],'2'
+		mov byte ptr[di],'1'
+		mov byte ptr[di+1],'2'
 		
 		jmp inend	
 		
 wend7:
-		mov [di],'2'
-		mov [di+1],'2'
+		mov byte ptr[di],'2'
+		mov byte ptr[di+1],'2'
 		
 		jmp inend
 
 wend8:
-		mov [di],'2'
-		mov [di+1],'1'
+		mov byte ptr[di],'2'
+		mov byte ptr[di+1],'1'
 		
 		jmp inend
 		
 wend9:
-		mov [di],'2'
-		mov [di+1],'0'
+		mov byte ptr[di],'2'
+		mov byte ptr[di+1],'0'
 		
 		jmp inend
 		
@@ -229,17 +229,17 @@ inend:			; midieval input end
         
 cend1:
 
-		mov [di+2],'2'
+		mov byte ptr[di+2],'2'
 		jmp inendf		; final input end
         
 cend2:
 		
-		mov [di+2],'1'
+		mov byte ptr[di+2],'1'
 		jmp inendf
 		
 cend3:
 
-		mov[di+2],'0'
+		mov byte ptr[di+2],'0'
 		jmp inendf
 		
 inendf:
@@ -496,7 +496,7 @@ finexit2:
 	
 	push dx
 	
-		mov cl,04				; left shifting bp by 4 digits to add dl
+		mov cl,04				; left shifting bp by 4 digits to add dl Doing this as for output through one port only
 
 		cmp bp,02
 		jne t1
@@ -539,6 +539,8 @@ t4:
 	push dx
 	
 		mov ax,bp
+		xor ah,ah
+		
 		mov dx,pa			
 		out dx,al				; outputting value through port a
 		
