@@ -72,8 +72,39 @@ code segment
 		output p2
 		output p3
 		
-		inputs inp1,20		
-		lea si,inp1						; inputting the code in si
+		;inputs inp1,20		
+		;lea si,inp1						; inputting the code in si
+		
+		push ax				; Done to make code word by first team invisible to the 2nd team
+		
+		mov ah,08h			; input a char without echo stored in al
+		int 21h
+		
+		mov byte ptr[si],al
+		
+		mov ah,02h		; printing a charachter stored  in dl
+		mov dl,"*"
+		int 21h
+		
+		mov ah,08h			; input a char without echo stored in al
+		int 21h
+		
+		mov byte ptr[si+1],al
+		
+		mov ah,02h		; printing a charachter stored  in dl
+		mov dl,"*"
+		int 21h
+		
+		mov ah,08h			; input a char without echo stored in al
+		int 21h
+		
+		mov byte ptr[si+2],al
+		
+		mov ah,02h		; printing a charachter stored  in dl
+		mov dl,"*"
+		int 21h
+		
+		pop ax
 
 cdec:
 
@@ -354,6 +385,7 @@ par3:
 		
 		inc dl
 
+		jmp exit
 ; the below cases are needed if and only if no white light glows
 
 
